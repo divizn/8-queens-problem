@@ -10,13 +10,14 @@ public class Main {
 			{'.', '.', '.', 'Q', '.', '.', '.', '.'}
 	};
 
-	public static String binaryRepresentation = "011000100110000111000000";
+	public static String binaryRepresentation = "011000100110100111000101";
 
 	public static void main(String[] args) {
 		Chess ch = new Chess(80);
 		String solution = ch.getBestRRHC();
 		System.out.println("solution: " + solution);
 		System.out.println("fitness: " + Chess.getFitness(solution));
+		System.out.println("string: " + Chess.getFitness(binaryRepresentation)); // should be 42
 
 		double average = 0;
 		int maxFitness = 0;

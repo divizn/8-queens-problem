@@ -54,16 +54,17 @@ public class Chess {
 
 	public static int getFitness(String str) {
 		int fitness = 56;
-		int[] cols = new int[8];
+		int[] queens = new int[8];
 		for (int i = 0; i < 8; i++) {
-			cols[i] = Integer.parseInt(str.substring(i * 3, i * 3 + 3), 2);
+			queens[i] = Integer.parseInt(str.substring(i * 3, i * 3 + 3), 2);
 		}
 		int clashes = 0;
-		for (int queen = 0; queen < 8; queen++) {
-			for (int otherQueen = queen+1; otherQueen < 8; otherQueen++) {
-				int colDiff = Math.abs(cols[queen] - cols[otherQueen]);
-				int rowDiff = Math.abs(queen - otherQueen);
-				if (cols[queen] == cols[otherQueen] || colDiff == rowDiff) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = i+1; j < 8; j++) {
+				int rowDiff = Math.abs(queens[i] - queens[j]);
+				int colDiff = Math.abs(i - j);
+				if (queens[i] == queens[j] || colDiff == rowDiff) {
+					clashes++;
 					clashes++;
 				}
 			}
