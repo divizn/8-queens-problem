@@ -1,10 +1,5 @@
 public class Chess {
-	public int iterations;
 	public static final int RRHC_RESTARTS = 300;
-
-	public Chess(int iterations) {
-		this.iterations = iterations;
-	}
 
 	public static boolean checkCharacter(Character i) {
 		return i == 'Q' || i == '.';
@@ -73,7 +68,7 @@ public class Chess {
 		return fitness;
 	}
 
-	public String getBestRRHC() {
+	public static String getBestRRHC(int iterations) {
 		int fitness = 0;
 		String str = "";
 		for (int i = 0; i < RRHC_RESTARTS; i++) {
