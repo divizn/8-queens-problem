@@ -10,10 +10,10 @@ public class Main {
 			{'.', '.', '.', 'Q', '.', '.', '.', '.'}
 	};
 
-	public static String binaryRepresentation = "011000100110100111000101";
+	public static String binaryRepresentation = "100010111011110000101001";
 
 	public static void main(String[] args) {
-		int iters = 80;
+		int iters = 50;
 		String solution = Chess.getBestRRHC(iters);
 		System.out.println("solution: " + solution);
 		System.out.println("fitness: " + Chess.getFitness(solution));
