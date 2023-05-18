@@ -1,5 +1,4 @@
 public class Chess {
-	public static final int RRHC_RESTARTS = 300; // RRHC restarts (<300 is not enough (for 56 average), >500 is overkill)
 
 	public static boolean checkCharacter(Character i) {
 		return i == 'Q' || i == '.';
@@ -70,8 +69,36 @@ public class Chess {
 
 	public static String getBestRRHC(int iterations) {
 		int fitness = 0;
+		int restarts = 0;
+		int tempIterations = iterations;
 		String str = "";
-		for (int i = 0; i < RRHC_RESTARTS; i++) {
+		if (iterations < 1) return "000000000000000000000000";
+
+		if (iterations % 2 == 0) {
+			tempIterations = iterations / 2;
+			restarts = 2;
+			if (iterations % 5 == 0) {
+				tempIterations = iterations / 5;
+				restarts = 5;
+				if (iterations % 4 == 0 && iterations >= 500) {
+					tempIterations = iterations / 4;
+					restarts = 4;
+				}
+			}
+			if (iterations % 10 == 0 && iterations >= 750) {
+				tempIterations = iterations / 10;
+				restarts = 10;
+			}
+		} else {
+			restarts = 2;
+			tempIterations = (iterations / 2) + 1;
+		}
+		iterations = tempIterations;
+
+		System.out.println("iterations: " + iterations
+				+ "\nrestarts: " + restarts);
+
+		for (int i = 0; i < restarts; i++) {
 			String newStr = getBestRMHC(iterations);
 			int newFitness = getFitness(newStr);
 			if (newFitness > fitness) {
