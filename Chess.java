@@ -94,10 +94,6 @@ public class Chess {
 			tempIterations = (iterations / 2) + 1;
 		}
 		iterations = tempIterations;
-
-		System.out.println("iterations: " + iterations
-				+ "\nrestarts: " + restarts);
-
 		for (int i = 0; i < restarts; i++) {
 			String newStr = getBestRMHC(iterations);
 			int newFitness = getFitness(newStr);

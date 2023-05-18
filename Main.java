@@ -17,7 +17,7 @@ public class Main {
 		String solution = Chess.getBestRRHC(iters);
 		System.out.println("solution: " + solution);
 		System.out.println("fitness: " + Chess.getFitness(solution));
-		System.out.println("string: " + Chess.getFitness(binaryRepresentation)); // should be 42
+		System.out.println("string: " + Chess.getFitness(binaryRepresentation));
 
 		double average = 0;
 		int maxFitness = 0;
