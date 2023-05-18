@@ -1,5 +1,5 @@
 public class Chess {
-	public static final int RRHC_RESTARTS = 500; // RRHC restarts (<300 is not enough, >500 is overkill)
+	public static final int RRHC_RESTARTS = 300; // RRHC restarts (<300 is not enough (for 56 average), >500 is overkill)
 
 	public static boolean checkCharacter(Character i) {
 		return i == 'Q' || i == '.';
